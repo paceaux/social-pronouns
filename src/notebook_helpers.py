@@ -59,3 +59,37 @@ def format_time(text: str) -> str:
     return f'{date.strftime("%b %d, %Y")} {time.strftime("%I:%M%p")}'
 
 prettify_time = lambda s: f'{format_time(s)}'
+
+def get_frequency_dict(rows, regex, no_flags= False):
+    """Creates a dictionary of frequencies
+
+    Args:
+        rows ([str]): rows from the database
+        regex (str): the regular expression pattern
+        no_flags (bool, optional): Turns off the flags. Defaults to False.
+
+    Raises:
+        ValueError: An error if stuff goes wrong
+
+    Returns:
+        dict: A key value dictionary where the value will the <n> occurences
+    """
+    freq_dict = {}
+    if not regex:
+        raise ValueError("A Regular expression must be provided")
+
+    for row in rows:
+        message = row[2].strip()
+        search_results = re.findall(regex, message, flags=re.IGNORECASE) if not no_flags else re.findall(regex, message)
+
+        for result_tuple in search_results:
+            result_list = [item for item in list(result_tuple) if item !='']
+            result = result_list[0]
+            cleaned = result.lower().strip()
+            if cleaned in freq_dict:
+                count = freq_dict.get(cleaned) + 1
+                freq_dict[cleaned] = count
+            else:
+                freq_dict[cleaned] = 1
+
+    return freq_dict
