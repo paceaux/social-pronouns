@@ -2,7 +2,7 @@ import re
 
 
 # PROFANITY_REGEX = "((\b)?(fuck)(\w+)?)|((\\b)?shit(\w+)?)|((\\b)dick(\\w+|\\b))|((\\b)ass(\\w+|\\b))|((\\b)cocks?\\b)|((\\b)cunts?\\b)|((\\b)twats?\\b)|(wtf)|(stfu)|((\\b)damn(ed|it)?\b)"
-PROFANITY_REGEX = "(\\b)?((fuck|shit|dick|cock|cunt|twat|damn)(\\w+)?)|(\\b)?(ass(hole|wad|face|head)?)|(wtf|stfu)(\\b)"
+PROFANITY_REGEX = "(\\b)?((fuck|shit|dick|cock|cunt|twat|damn)(\\w+)?)|(\\b)?(ass(hole|wad|face|head)?)|(wtf|stfu|omfg|fml|lmfao)(\\b)"
 NEGATION_REGEX = "\\b(n(o+(pe)?|a+(h|w)?|uh))\\b"
 AFFIRMATION_REGEX = "\\b(y((e+|a+|u+)(a+)?(y|h|s|p)?)\\b)"
 EMOJI_REGEX =  re.compile(
