@@ -1,5 +1,6 @@
 import re
 from datetime import datetime
+from collections import Counter
 
 def uriToUrl(atUri: str) -> str:
     """converts Bluesky URI to bluesky URL
@@ -60,8 +61,26 @@ def format_time(text: str) -> str:
 
 prettify_time = lambda s: f'{format_time(s)}'
 
+def get_instance_dict(words, rows):
+    """Creates a dictionary of how many rows contain at least one instance
+    
+    Args:
+        rows ([str]): rows from the database
+        words ([str]): list of words
+        
+    Returns:
+        Counter
+    """
+    instances = Counter()
+    for row in rows:
+        for word in words:
+            match = re.findall(f'\\b({word})\\b',row[2], flags = re.IGNORECASE)
+            if match:
+                instances.update([word])
+    return instances
+
 def get_frequency_dict(rows, regex, no_flags= False):
-    """Creates a dictionary of frequencies
+    """Creates a dictionary of how many times the pattern occurs across all rows
 
     Args:
         rows ([str]): rows from the database
