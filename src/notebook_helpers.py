@@ -80,7 +80,10 @@ def get_frequency_dict(rows, regex, no_flags= False):
 
     for row in rows:
         message = row[2].strip()
-        search_results = re.findall(regex, message, flags=re.IGNORECASE) if not no_flags else re.findall(regex, message)
+        if isinstance(regex, re.Pattern):
+            search_results = re.findall(regex, message)
+        else:
+            search_results = re.findall(regex, message, flags=re.IGNORECASE) if not no_flags else re.findall(regex, message)
 
         for result_tuple in search_results:
             result_list = [item for item in list(result_tuple) if item !='']
