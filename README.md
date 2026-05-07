@@ -1,6 +1,6 @@
-# Social Pronoun Analysis
+# Social Pronoun (Bronoun) Analysis
 
-This repository contains Python scripts used for analysing the data from the database(s) of Bluesky posts that was collected with the [Bluesky Language Feed Generator](https://github.com/paceaux/bsky-language-feed-generator).
+This repository contains Jupyter Notebooks and  Python scripts used for analysing the data from the database(s) of Bluesky posts that was collected with the [Bluesky Language Feed Generator](https://github.com/paceaux/bsky-language-feed-generator).
 
 ## Questions this code should answer
 
@@ -26,11 +26,15 @@ This repository contains Python scripts used for analysing the data from the dat
 
 ## Usage
 
+This project contains both Jupyter Notebooks and scripts that can be run from a command line.
+
 ### Pre-requisites
 
-First, get the database(s) from the [OSF project](https://osf.io/qfdtn/files/osfstorage) and put them in a folder.
+First, get the database(s) from the [OSF project](https://osf.io/qfdtn/files/osfstorage) and put the files in a folder close to this project. 
 
-### Get details for a specific pronoun
+Second, install [Jupyter Notebook](https://jupyter.org/) if you'd like to see this in a browser.
+
+### Using the CLI
 
 Run this command:
 
@@ -52,7 +56,7 @@ Optional arguments:
 - `-u, --usage`: Display the posts for any of the data parameters provided (default is `False`).
 - `--allRows`: Display every post using the pronoun in the analysis (default is `False`).
 
-### Get a summary of all pronouns
+#### Get a summary of all pronouns
 
 run this command:
 
