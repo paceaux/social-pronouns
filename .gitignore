@@ -30,3 +30,5 @@ pip-wheel-metadata/
 share/python-wheels/
 *.egg-info/
 .installed
+.ipynb_checkpoints/
+*checkpoint.ipynb
